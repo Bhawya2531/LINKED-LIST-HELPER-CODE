@@ -1,0 +1,84 @@
+//INSERT AT FRONT
+class Node {
+    int data;  
+    Node next;  
+    Node(int new_data) {
+        data = new_data;
+        next = null;
+    }
+}
+public class LinkedList {
+    public static Node insertAtFront(Node head, int new_data) {
+        // Create a new node with the given data
+        Node new_node = new Node(new_data); 
+        // Make the next of the new node point to the current head
+        new_node.next = head;
+        // Return the new node as the new head of the list
+        return new_node;
+    }
+//INSERT AT END
+public class LinkedList {
+    static Node append(Node head, int newData) {
+        Node newNode = new Node(newData);
+        if (head == null) {
+            return newNode;
+        }
+        // Store the head reference in a temporary variable
+        Node last = head;
+        // Traverse till the last node
+        while (last.next != null) {
+            last = last.next;
+        }
+        // Change the next pointer of the 
+        // last node to point to the new node
+        last.next = newNode;
+        // Return the head of the list
+        return head;
+    }
+
+//INSERT AT SPECIFIC POSITION
+public class LinkedList {
+    static Node insertPos(Node head, int pos, int data) {
+        if (pos < 1)
+            return head;
+
+        // head will change if pos=1
+        if (pos == 1) {
+            Node newNode = new Node(data);
+            newNode.next = head;
+            return newNode;
+        }
+
+        Node curr = head;
+
+        // Traverse to the node that will be 
+        // present just before the new node
+        for (int i = 1; i < pos - 1 && curr != null; i++) {
+            curr = curr.next;
+        }
+        
+        // if position is greater than number of elements
+        if (curr == null)
+            return head;
+        
+        Node newNode = new Node(data);
+
+        // update the next pointers
+        newNode.next = curr.next;  1. Point newNode.next to the node that was originally after curr.
+        curr.next = newNode;       2. Link curr.next to newNode (inserting it in the chain).
+
+        return head;
+    }
+
+
+    // Function to print the contents of the linked list
+    public static void printList(Node head) {
+        Node curr = head;
+        while (curr != null) {
+            System.out.print(" " + curr.data);
+            curr = curr.next;
+        }
+        System.out.println();
+    }
+
+    
