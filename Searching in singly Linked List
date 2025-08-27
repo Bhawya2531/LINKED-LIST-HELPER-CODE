@@ -1,3 +1,4 @@
+//ITERATIVE WAY O(N) TIME O(1) SPACE
 class Node {
     int data;
     Node next;
@@ -14,3 +15,23 @@ public class LinkedList {
         }
         System.out.println();
     }
+
+//RECURSIVE WAY O(N) TIME O(N) SPACE
+class Node {
+    int data;
+    Node next;
+    Node(int new_data) {
+        data = new_data;
+        next = null;
+    }
+}
+public class LinkedList {
+    static boolean searchKey(Node head, int key) {
+        if (head == null)
+            return false;
+        if (head.data == key)
+            return true;
+        // Recur for remaining list
+        return searchKey(head.next, key);
+    }
+}
