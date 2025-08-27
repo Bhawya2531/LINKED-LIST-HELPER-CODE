@@ -1,0 +1,16 @@
+class Node {
+    int data;
+    Node next;
+    Node(int new_data) {
+        this.data = new_data;
+        this.next = null;
+    }
+}
+public class GfG {
+    public static void traverseList(Node head) {
+        while (head != null) {
+            System.out.print(head.data + " ");
+            head = head.next;
+        }
+        System.out.println();
+    }
